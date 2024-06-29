@@ -23,7 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
-        android:layout_marginTop="60dp"> <!-- Adjust margin top based on your title height -->
+        android:orientation="vertical"
+        android:contextClickable="true"
+        android:layout_marginTop="60dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,33 +37,39 @@
                 android:id="@+id/trips"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/card1" />
+                android:src="@drawable/card1"
+                android:layout_marginBottom="18dp"/>
 
             <ImageView
                 android:id="@+id/hotels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/card3" />
+                android:src="@drawable/card3"
+                android:layout_marginBottom="18dp"/>
 
             <ImageView
                 android:id="@+id/transport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/card4" />
+                android:src="@drawable/card4"
+                android:layout_marginBottom="18dp"/>
 
             <ImageView
                 android:id="@+id/events"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/card2" />
+                android:src="@drawable/card2"
+                android:layout_marginBottom="18dp"/>
+
             <ImageView
                 android:id="@+id/trong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:layout_marginBottom="18dp"/>
 
-            <!-- Add more ImageViews for additional categories -->
+            <!-- Add more ImageViews for additional categories with margins -->
 
         </LinearLayout>
     </ScrollView>
+
 </FrameLayout>

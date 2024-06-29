@@ -1,14 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".profileFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar"
+            app:shapeAppearanceOverlay="@style/RoundedImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Victoria Yoker"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_name">
+
+            <TextView
+                android:id="@+id/personal_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/accounticon"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="Personal information"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/payment_and_cards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/accounticon2"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="Payment and cards"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/saved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/accounticon3"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="Saved"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/booking_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/accounticon4"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="Booking history"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/accounticon5"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="Settings"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- End Session Button -->
+        <Button
+            android:id="@+id/end_session"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F8EEE5"
+            android:drawableLeft="@drawable/endsession"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/poppins_bold"
+            android:padding="10dp"
+            android:text="End session"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.889" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

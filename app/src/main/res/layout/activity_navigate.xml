@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
         android:backgroundTint="#FEA36B"
         android:fontFamily="@font/poppins_bold"
         android:padding="8dp"

@@ -1,6 +1,9 @@
 package com.example.bookingapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -13,10 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 public class HomePage extends AppCompatActivity {
 
     private int selectTab = 1; //have 4 tab
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,7 +168,15 @@ public class HomePage extends AppCompatActivity {
                     scaleAnimation.setDuration(300);
                     scaleAnimation.setFillAfter(true);
                     profileLayout.startAnimation(scaleAnimation);
+                    pref = getSharedPreferences("AccountInfo", Context.MODE_PRIVATE);
+                    String firstName = pref.getString("FirstName", "");
+                    String lastName = pref.getString("LastName", "");
+                    String uri = pref.getString("Image", "");
+                    getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
+                        .replace(R.id.fragment_container, profileFragment.newInstance(firstName + " " + lastName,uri), null)
+                        .commit();
             }
         });
     }
 }
+
