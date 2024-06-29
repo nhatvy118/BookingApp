@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BookingFragment">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="Booking"
+        android:textColor="#01635D"
+        android:textSize="30sp" />
+
+    <!-- ScrollView for Images -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:layout_marginTop="60dp"> <!-- Adjust margin top based on your title height -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ImageViews for different categories -->
+            <ImageView
+                android:id="@+id/trips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/card1" />
+
+            <ImageView
+                android:id="@+id/hotels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/card3" />
+
+            <ImageView
+                android:id="@+id/transport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/card4" />
+
+            <ImageView
+                android:id="@+id/events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/card2" />
+            <ImageView
+                android:id="@+id/trong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <!-- Add more ImageViews for additional categories -->
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
