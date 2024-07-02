@@ -1,37 +1,28 @@
-package com.example.bookingapp;
-
-import static androidx.core.app.ActivityCompat.startActivityForResult;
+package com.example.bookingapp.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.Manifest;
 import android.widget.Toast;
 
+import com.example.bookingapp.R;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -39,10 +30,10 @@ import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link profileInfo#newInstance} factory method to
+ * Use the {@link ProfileInfo#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class profileInfo extends Fragment {
+public class ProfileInfo extends Fragment {
 
 
     private static final String ARG_FIRST_NAME = "FirstName";
@@ -69,13 +60,13 @@ public class profileInfo extends Fragment {
     // TODO: Rename and change types of parameters
 
 
-    public profileInfo() {
+    public ProfileInfo() {
         // Required empty public constructor
     }
 
 
-    public static profileInfo newInstance(String firstName, String lastName, String phone, String email,String uri) {
-        profileInfo fragment = new profileInfo();
+    public static ProfileInfo newInstance(String firstName, String lastName, String phone, String email, String uri) {
+        ProfileInfo fragment = new ProfileInfo();
         Bundle args = new Bundle();
         args.putString(ARG_FIRST_NAME, firstName);
         args.putString(ARG_LAST_NAME, lastName);
@@ -122,7 +113,7 @@ public class profileInfo extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, profileFragment.newInstance(firstName +" " + lastName,uri));
+                transaction.replace(R.id.fragment_container, ProfileFragment.newInstance(firstName +" " + lastName,uri));
                 transaction.addToBackStack(null);
                 transaction.commit();
 

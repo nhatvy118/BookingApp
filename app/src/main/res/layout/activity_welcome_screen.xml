@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#F5F5F5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WelcomeScreen">
 
     <ImageView
         android:id="@+id/welcome_logo"
-        android:layout_width="386dp"
-        android:layout_height="206dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
@@ -32,10 +33,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/welcome_logo"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/welcome_logo"
         app:layout_constraintTop_toBottomOf="@+id/welcome_logo"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.417" />
 
     <Button
         android:id="@+id/logIn"
@@ -50,9 +51,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/welcome_logo"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/welcome_logo"
         app:layout_constraintTop_toBottomOf="@+id/singUpBtn"
-        app:layout_constraintVertical_bias="0.124" />
+        app:layout_constraintVertical_bias="0.15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

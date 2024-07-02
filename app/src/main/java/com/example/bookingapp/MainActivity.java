@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("FirstName", "Vy");
         editor.putString("LastName", "Huynh");
         editor.putString("Email", "vy");
-        editor.putString("Password", "123456");
+        editor.putString("Password", "1");
         editor.putString("PhoneNumber", "0123456789");
         editor.putString("Image", "Default");
         editor.apply();

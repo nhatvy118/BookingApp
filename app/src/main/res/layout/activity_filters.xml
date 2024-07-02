@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Filters">
+
+    <LinearLayout
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:src="@drawable/baseline_arrow_back_ios_new_24" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Filters"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="13dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading">
+
+
+        <!-- Departure Section -->
+        <TextView
+            android:id="@+id/departure_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Departure"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollViewDeparture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center_vertical"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/departure_btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12AM - 06AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/departure_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06AM - 12PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/departure_btn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12PM - 06PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/departure_btn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06PM - 12AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Arrival Section -->
+        <TextView
+            android:id="@+id/arrival_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Arrival"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollViewArrival"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center_vertical"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/arrival_btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12AM - 06AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/arrival_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06AM - 12PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/arrival_btn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12PM - 06PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/arrival_btn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06PM - 12AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Price Section -->
+        <TextView
+            android:id="@+id/price_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Price"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/range_seek_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            app:values="@array/initial_values" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:padding="8dp"
+                android:text="$50"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="$250"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Sort By Section -->
+        <TextView
+            android:id="@+id/sortby_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Sort by"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#01635D"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Arrival time" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Departure time"
+                app:backgroundTint="#01635D" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Price"
+                app:backgroundTint="#01635D" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Lowest fare"
+                app:backgroundTint="#01635D" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Duration"
+                app:backgroundTint="#01635D" />
+        </RadioGroup>
+
+        <!-- Buttons Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F8EEE5"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="10dp"
+                android:text="Reset"
+                android:textColor="@color/btn"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/btn"
+                android:fontFamily="@font/poppins_bold"
+                android:padding="10dp"
+                android:text="Done"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

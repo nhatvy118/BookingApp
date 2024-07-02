@@ -3,4 +3,8 @@
     <string name="ob1_description">Booking ticket for planes and trains</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="passenger_hint">0</string>
+    <string name="children_hint">0</string>
+    <string name="pet_hint">0</string>
+    <string name="luggage_hint">0</string>
 </resources>

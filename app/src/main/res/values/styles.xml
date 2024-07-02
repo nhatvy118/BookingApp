@@ -5,5 +5,10 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
     </style>
+    <style name="MyOutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:backgroundTint">@null</item>
+    </style>
+
+
 
 </resources>

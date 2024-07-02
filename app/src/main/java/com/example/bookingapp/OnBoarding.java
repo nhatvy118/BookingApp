@@ -10,12 +10,11 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager.widget.ViewPager;
 
-public class NavigateActivity extends AppCompatActivity {
+import com.example.bookingapp.Adapter.ViewPagerAdapter;
+
+public class OnBoarding extends AppCompatActivity {
     ViewPager sliderViewPager;
     LinearLayout dotIndicator;
     ViewPagerAdapter viewPagerAdapter;
@@ -69,16 +68,15 @@ public class NavigateActivity extends AppCompatActivity {
                 if (getItem(0) < 1){
                     sliderViewPager.setCurrentItem(getItem(1), true);
                 }else{
-                    Intent intent = new Intent(NavigateActivity.this, GetStarted.class);
+                    Intent intent = new Intent(OnBoarding.this, GetStarted.class);
                     startActivity(intent);
-                    finish();
                 }
             }
         });
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NavigateActivity.this, GetStarted.class);
+                Intent intent = new Intent(OnBoarding.this, GetStarted.class);
                 startActivity(intent);
                 finish();
             }

@@ -1,4 +1,4 @@
-package com.example.bookingapp;
+package com.example.bookingapp.Fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,30 +8,29 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.bookingapp.R;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link profileFragment#newInstance} factory method to
+ * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class profileFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
 
     private TextView ProfileInfo;
     private TextView profileName;
     private SharedPreferences pref;
 
-    public profileFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -42,8 +41,8 @@ public class profileFragment extends Fragment {
     private ShapeableImageView profileImage;
 
     // TODO: Rename and change types and number of parameters
-    public static profileFragment newInstance(String Name,String imageUri) {
-        profileFragment fragment = new profileFragment();
+    public static ProfileFragment newInstance(String Name, String imageUri) {
+        ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
         args.putString(ARG_FIRST_NAME, Name);
         args.putString(ARG_IMAGE_URI, imageUri);
@@ -83,7 +82,7 @@ public class profileFragment extends Fragment {
                 String phone = pref.getString("PhoneNumber", "");
                 String email = pref.getString("Email", "");
                 FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, profileInfo.newInstance(firstName,lastName,phone,email,uri));
+                transaction.replace(R.id.fragment_container, com.example.bookingapp.Fragment.ProfileInfo.newInstance(firstName,lastName,phone,email,uri));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

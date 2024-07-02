@@ -1,0 +1,176 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".selected_seats">
+
+    <!-- Toolbar or Title -->
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/heading"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="8dp">-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/backButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--            android:src="@drawable/baseline_arrow_back_ios_new_24" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:fontFamily="@font/poppins_bold"-->
+<!--            android:text="Select Seats"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold"/>-->
+<!--    </RelativeLayout>-->
+
+<!--    &lt;!&ndash; Traveller Section &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:paddingVertical="8dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Traveller"-->
+<!--            android:textStyle="bold"/>-->
+
+<!--        &lt;!&ndash; RecyclerView for Traveller &ndash;&gt;-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/travellerRecyclerView"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:paddingStart="8dp"/>-->
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Legend Section &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:paddingVertical="8dp">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginEnd="16dp">-->
+
+<!--            <View-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="16dp"-->
+<!--                android:background="@color/selected"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="4dp"-->
+<!--                android:text="Selected"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginEnd="16dp">-->
+
+<!--            <View-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="16dp"-->
+<!--                android:background="@color/booked"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="4dp"-->
+<!--                android:text="Booked"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <View-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="16dp"-->
+<!--                android:background="@color/available"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="4dp"-->
+<!--                android:text="Available"/>-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Seat Grid Section &ndash;&gt;-->
+<!--    <HorizontalScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fillViewport="true">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            &lt;!&ndash; Row Labels &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="A"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:padding="4dp"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="B"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:padding="4dp"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="C"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:padding="4dp"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="D"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:padding="4dp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; Seat Grid &ndash;&gt;-->
+<!--            <GridLayout-->
+<!--                android:id="@+id/seatGridLayout"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:columnCount="4"-->
+<!--                android:rowCount="7"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:padding="4dp">-->
+
+<!--                &lt;!&ndash; Populate seats programmatically &ndash;&gt;-->
+<!--            </GridLayout>-->
+<!--        </LinearLayout>-->
+<!--    </HorizontalScrollView>-->
+
+</LinearLayout>

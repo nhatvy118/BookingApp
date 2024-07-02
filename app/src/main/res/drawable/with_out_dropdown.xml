@@ -1,0 +1,9 @@
+<!-- res/drawable/your_spinner_background_drawable.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <!-- Customize other properties like corners, strokes, etc. -->
+        </shape>
+    </item>
+</selector>

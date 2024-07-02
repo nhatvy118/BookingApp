@@ -4,5 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#999090</color>
     <color name="btn">#FEA36B</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="edittext_focused_color">#01635D</color>
+    <color name="edittext_default_color">#727272</color>
 
 </resources>

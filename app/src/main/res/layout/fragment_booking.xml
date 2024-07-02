@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BookingFragment">
+    tools:context=".Fragment.BookingFragment">
 
     <!-- Title TextView -->
     <TextView
@@ -15,7 +16,7 @@
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="Booking"
-        android:textColor="#01635D"
+        android:textColor="#000000"
         android:textSize="30sp" />
 
     <!-- ScrollView for Images -->
@@ -25,7 +26,8 @@
         android:layout_gravity="top"
         android:orientation="vertical"
         android:contextClickable="true"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="60dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"

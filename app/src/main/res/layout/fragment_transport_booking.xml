@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".Fragment.TransportBooking">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <RelativeLayout
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/baseline_arrow_back_ios_new_24"
+                />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Transport Booking"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heading">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fromInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/switchButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/fromText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="From"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:padding="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/toInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxStrokeWidth="0dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fromInputLayout">
+
+                <AutoCompleteTextView
+                    android:id="@+id/toText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="To"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:padding="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/departureInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxStrokeWidth="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/returnInputLayout"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/toInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/toInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/departureInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="Departure"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <ImageButton
+                android:id="@+id/switchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/swapbtn"
+                app:layout_constraintBottom_toBottomOf="@+id/toInputLayout"
+                app:layout_constraintEnd_toEndOf="@+id/toInputLayout"
+                app:layout_constraintHorizontal_bias="0.932"
+                app:layout_constraintStart_toStartOf="@+id/toInputLayout"
+                app:layout_constraintTop_toTopOf="@+id/fromInputLayout"
+                app:layout_constraintVertical_bias="0.445"
+                tools:ignore="contentDescription" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/returnInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                app:boxBackgroundColor="@color/white"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxStrokeWidth="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/toInputLayout"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/departureInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/toInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/returnInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="Return"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/passengerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Passenger &amp; Luggage"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <LinearLayout
+            android:id="@+id/passengerLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/passengerLabel">
+
+            <EditText
+                android:id="@+id/passengerCountEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/person_icon"
+                android:drawablePadding="8dp"
+                android:hint="@string/passenger_hint"
+                android:inputType="number"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/edittext_text_color" />
+
+            <EditText
+                android:id="@+id/childrenCountEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/child_icon"
+                android:drawablePadding="8dp"
+                android:hint="@string/children_hint"
+                android:inputType="number"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/edittext_text_color" />
+
+            <EditText
+                android:id="@+id/petCountEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/pet_icon"
+                android:drawablePadding="8dp"
+                android:hint="@string/pet_hint"
+                android:inputType="number"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/edittext_text_color" />
+
+            <EditText
+                android:id="@+id/luggageCountEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/luggage_icon"
+                android:drawablePadding="8dp"
+                android:hint="@string/luggage_hint"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:inputType="number"
+                android:textColor="@color/edittext_text_color" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/classLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Class"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/passengerLayout" />
+
+        <LinearLayout
+            android:id="@+id/classLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/classLabel">
+
+            <Button
+                android:id="@+id/button_economy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:text="Economy"
+                android:textColor="@color/button_text_color"
+                android:textSize="16sp"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/button_business"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:text="Business"
+                android:textColor="@color/button_text_color"
+                android:textSize="16sp"
+                app:backgroundTint="@null" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/transportLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Transport"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/classLayout" />
+
+        <LinearLayout
+            android:id="@+id/transportLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/transportLabel">
+
+            <ImageButton
+                android:id="@+id/button_airplane"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/button_background"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_airplane_selector" />
+
+            <ImageButton
+                android:id="@+id/button_boat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_boat_selector"
+                android:padding="12dp"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerInside"/>
+
+            <ImageButton
+                android:id="@+id/button_train"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_train_selector"
+                android:padding="12dp"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerInside"/>
+
+            <ImageButton
+                android:id="@+id/button_bus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_bus_selector"
+                android:padding="12dp"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerInside"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="120dp"
+            android:backgroundTint="@color/btn"
+            android:text="Search"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/transportLayout"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

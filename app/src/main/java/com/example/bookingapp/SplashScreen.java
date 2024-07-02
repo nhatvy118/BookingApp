@@ -1,23 +1,15 @@
 package com.example.bookingapp;
 
 import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.PathInterpolator;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -77,7 +69,7 @@ public class SplashScreen extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
                 // Animation ended
                 // Start new activity here
-                startActivity(new Intent(SplashScreen.this,NavigateActivity .class));
+                startActivity(new Intent(SplashScreen.this, OnBoarding.class));
                 finish(); // Finish current activity if needed
             }
 

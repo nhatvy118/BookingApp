@@ -3,7 +3,6 @@ package com.example.bookingapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -13,15 +12,27 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.FragmentTransaction;
+
+import com.example.bookingapp.Fragment.BookingFragment;
+import com.example.bookingapp.Fragment.HomePageFragment;
+import com.example.bookingapp.Fragment.ProfileFragment;
 
 public class HomePage extends AppCompatActivity {
 
     private int selectTab = 1; //have 4 tab
     private SharedPreferences pref;
+    private LinearLayout homeLayout;
+    private LinearLayout bookingLayout;
+    private LinearLayout notificationLayout;
+    private LinearLayout profileLayout;
+    private ImageView nav1;
+    private ImageView nav2;
+    private ImageView nav3;
+    private ImageView nav4;
+    private TextView text1;
+    private TextView text2;
+    private TextView text3;
+    private TextView text4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +40,20 @@ public class HomePage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home_page);
 
-        final LinearLayout homeLayout = findViewById(R.id.homeLayout);
-        final LinearLayout bookingLayout = findViewById(R.id.bookingLayout);
-        final LinearLayout notificationLayout = findViewById(R.id.notificationLayout);
-        final LinearLayout profileLayout = findViewById(R.id.profileLayout);
+        homeLayout = findViewById(R.id.homeLayout);
+        bookingLayout = findViewById(R.id.bookingLayout);
+        notificationLayout = findViewById(R.id.notificationLayout);
+        profileLayout = findViewById(R.id.profileLayout);
 
-        final ImageView nav1 = findViewById(R.id.bottombar1);
-        final ImageView nav2 = findViewById(R.id.bottombar2);
-        final ImageView nav3 = findViewById(R.id.bottombar3);
-        final ImageView nav4 = findViewById(R.id.bottombar4);
+        nav1 = findViewById(R.id.bottombar1);
+        nav2 = findViewById(R.id.bottombar2);
+        nav3 = findViewById(R.id.bottombar3);
+        nav4 = findViewById(R.id.bottombar4);
 
-        final TextView text1 = findViewById(R.id.home);
-        final TextView text2 = findViewById(R.id.booking);
-        final TextView text3 = findViewById(R.id.notification);
-        final TextView text4 = findViewById(R.id.profile);
+        text1 = findViewById(R.id.home);
+        text2 = findViewById(R.id.booking);
+        text3 = findViewById(R.id.notification);
+        text4 = findViewById(R.id.profile);
 
         getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
                 replace(R.id.fragment_container, new HomePageFragment(),null).commit();
@@ -73,7 +84,8 @@ public class HomePage extends AppCompatActivity {
                     scaleAnimation.setFillAfter(true);
                     homeLayout.startAnimation(scaleAnimation);
                     getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                            replace(R.id.fragment_container, new HomePageFragment(),null).commit();
+                            replace(R.id.fragment_container, new HomePageFragment(),null).
+                            addToBackStack(null).commit();
                 }
             }
 
@@ -106,7 +118,8 @@ public class HomePage extends AppCompatActivity {
                     scaleAnimation.setFillAfter(true);
                     bookingLayout.startAnimation(scaleAnimation);
                     getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                            replace(R.id.fragment_container, new BookingFragment(),null).commit();
+                            replace(R.id.fragment_container, new BookingFragment(),null).
+                            addToBackStack(null).commit();
                 }
             }
         });
@@ -148,35 +161,85 @@ public class HomePage extends AppCompatActivity {
                     selectTab = 4;
                 }
 
-                    text1.setVisibility(View.GONE);
-                    text2.setVisibility(View.GONE);
-                    text3.setVisibility(View.GONE);
+                text1.setVisibility(View.GONE);
+                text2.setVisibility(View.GONE);
+                text3.setVisibility(View.GONE);
 
-                    nav1.setImageResource(R.drawable.bottombar1);
-                    nav2.setImageResource(R.drawable.bottombar2);
-                    nav3.setImageResource(R.drawable.bottombar3);
+                nav1.setImageResource(R.drawable.bottombar1);
+                nav2.setImageResource(R.drawable.bottombar2);
+                nav3.setImageResource(R.drawable.bottombar3);
 
-                    homeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    bookingLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    notificationLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                homeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                bookingLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                notificationLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
-                    text4.setVisibility(View.VISIBLE);
-                    nav4.setImageResource(R.drawable.bottombar4);
-                    profileLayout.setBackgroundResource(R.drawable.round_back_home);
+                text4.setVisibility(View.VISIBLE);
+                nav4.setImageResource(R.drawable.bottombar4);
+                profileLayout.setBackgroundResource(R.drawable.round_back_home);
 
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF ,0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-                    scaleAnimation.setDuration(300);
-                    scaleAnimation.setFillAfter(true);
-                    profileLayout.startAnimation(scaleAnimation);
-                    pref = getSharedPreferences("AccountInfo", Context.MODE_PRIVATE);
-                    String firstName = pref.getString("FirstName", "");
-                    String lastName = pref.getString("LastName", "");
-                    String uri = pref.getString("Image", "");
-                    getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
-                        .replace(R.id.fragment_container, profileFragment.newInstance(firstName + " " + lastName,uri), null)
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF ,0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                scaleAnimation.setDuration(300);
+                scaleAnimation.setFillAfter(true);
+                profileLayout.startAnimation(scaleAnimation);
+                pref = getSharedPreferences("AccountInfo", Context.MODE_PRIVATE);
+                String firstName = pref.getString("FirstName", "");
+                String lastName = pref.getString("LastName", "");
+                String uri = pref.getString("Image", "");
+                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
+                        .replace(R.id.fragment_container, ProfileFragment.newInstance(firstName + " " + lastName,uri), null)
+                        .addToBackStack(null)
                         .commit();
             }
         });
     }
-}
 
+    public void navigateToBookingFragment(){
+        selectTab = 2;
+
+        text1.setVisibility(View.GONE);
+        text3.setVisibility(View.GONE);
+        text4.setVisibility(View.GONE);
+
+        nav1.setImageResource(R.drawable.bottombar1);
+        nav3.setImageResource(R.drawable.bottombar3);
+        nav4.setImageResource(R.drawable.bottombar4);
+
+        homeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        notificationLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        profileLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+
+        text2.setVisibility(View.VISIBLE);
+        nav2.setImageResource(R.drawable.bottombar2);
+        bookingLayout.setBackgroundResource(R.drawable.round_back_home);
+
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF ,0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+        scaleAnimation.setDuration(300);
+        scaleAnimation.setFillAfter(true);
+        bookingLayout.startAnimation(scaleAnimation);
+    }
+    public void navigateToHome(){
+        selectTab = 1;
+
+        text2.setVisibility(View.GONE);
+        text3.setVisibility(View.GONE);
+        text4.setVisibility(View.GONE);
+
+        nav2.setImageResource(R.drawable.bottombar2);
+        nav3.setImageResource(R.drawable.bottombar3);
+        nav4.setImageResource(R.drawable.bottombar4);
+
+        bookingLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        notificationLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        profileLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+
+        text1.setVisibility(View.VISIBLE);
+        nav1.setImageResource(R.drawable.bottombar1);
+        homeLayout.setBackgroundResource(R.drawable.round_back_home);
+
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF ,0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+        scaleAnimation.setDuration(300);
+        scaleAnimation.setFillAfter(true);
+        homeLayout.startAnimation(scaleAnimation);
+
+    }
+}
