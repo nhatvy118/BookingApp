@@ -1,0 +1,22 @@
+<!-- seat_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" /> <!-- Adjust corner radius as needed -->
+            <solid android:color="#FEA36B" /> <!-- Color for selected state -->
+        </shape>
+    </item>
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" /> <!-- Adjust corner radius as needed -->
+            <solid android:color="#089083" /> <!-- Color for disabled state -->
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" /> <!-- Adjust corner radius as needed -->
+            <solid android:color="#B7DFDB" /> <!-- Default color -->
+        </shape>
+    </item>
+
+</selector>

@@ -1,45 +1,55 @@
 package com.example.bookingapp.Adapter;
 
+import android.text.format.DateFormat;
 
-
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class ConstantDateItem {
-    public static ArrayList<DateItem> getDateItem() {
+    public static ArrayList<DateItem> getDateItems(int numberOfDays) {
         ArrayList<DateItem> dateList = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
 
-        // Add some sample date items
-        dateList.add(new DateItem("TH", "02"));
-        dateList.add(new DateItem("FR", "03"));
-        dateList.add(new DateItem("SA", "04"));
-        dateList.add(new DateItem("SU", "05"));
-        dateList.add(new DateItem("MO", "06"));
-        dateList.add(new DateItem("TU", "07"));
-        dateList.add(new DateItem("WE", "08"));
-        dateList.add(new DateItem("TH", "09"));
-        dateList.add(new DateItem("FR", "10"));
-        dateList.add(new DateItem("SA", "11"));
-        dateList.add(new DateItem("SU", "12"));
-        dateList.add(new DateItem("MO", "13"));
-        dateList.add(new DateItem("TU", "14"));
-        dateList.add(new DateItem("WE", "15"));
-        dateList.add(new DateItem("TH", "16"));
-        dateList.add(new DateItem("FR", "17"));
-        dateList.add(new DateItem("SA", "18"));
-        dateList.add(new DateItem("SU", "19"));
-        dateList.add(new DateItem("MO", "20"));
-        dateList.add(new DateItem("TU", "21"));
-        dateList.add(new DateItem("WE", "22"));
-        dateList.add(new DateItem("TH", "23"));
-        dateList.add(new DateItem("FR", "24"));
-        dateList.add(new DateItem("SA", "25"));
-        dateList.add(new DateItem("SU", "26"));
-        dateList.add(new DateItem("MO", "27"));
-        dateList.add(new DateItem("TU", "28"));
-        dateList.add(new DateItem("WE", "29"));
-        dateList.add(new DateItem("TH", "30"));
-        dateList.add(new DateItem("FR", "31"));
+        for (int i = 0; i < numberOfDays; i++) {
+            // Generate datetime string
+            String datetime = DateFormat.format("MMM dd, yyyy", calendar.getTime()).toString();
+
+            // Get day of the week abbreviation (e.g., "TH" for Thursday)
+            String dayAbbreviation = getDayAbbreviation(calendar.get(Calendar.DAY_OF_WEEK));
+            // Get day of the month as string (e.g., "02", "03", etc.)
+            String dayOfMonth = String.format("%02d", calendar.get(Calendar.DAY_OF_MONTH));
+
+            // Create DateItem and add to list
+            dateList.add(new DateItem(dayAbbreviation, dayOfMonth, datetime));
+
+            // Move to the next day
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+        }
 
         return dateList;
+    }
+
+    // Helper method to get day abbreviation
+    private static String getDayAbbreviation(int dayOfWeek) {
+        switch (dayOfWeek) {
+            case Calendar.SUNDAY:
+                return "SU";
+            case Calendar.MONDAY:
+                return "MO";
+            case Calendar.TUESDAY:
+                return "TU";
+            case Calendar.WEDNESDAY:
+                return "WE";
+            case Calendar.THURSDAY:
+                return "TH";
+            case Calendar.FRIDAY:
+                return "FR";
+            case Calendar.SATURDAY:
+                return "SA";
+            default:
+                return "";
+        }
     }
 }

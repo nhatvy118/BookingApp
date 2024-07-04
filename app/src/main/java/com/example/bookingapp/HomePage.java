@@ -17,7 +17,7 @@ import com.example.bookingapp.Fragment.BookingFragment;
 import com.example.bookingapp.Fragment.HomePageFragment;
 import com.example.bookingapp.Fragment.ProfileFragment;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity{
 
     private int selectTab = 1; //have 4 tab
     private SharedPreferences pref;
@@ -33,13 +33,11 @@ public class HomePage extends AppCompatActivity {
     private TextView text2;
     private TextView text3;
     private TextView text4;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home_page);
-
         homeLayout = findViewById(R.id.homeLayout);
         bookingLayout = findViewById(R.id.bookingLayout);
         notificationLayout = findViewById(R.id.notificationLayout);

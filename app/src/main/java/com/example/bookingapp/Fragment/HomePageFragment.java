@@ -33,6 +33,9 @@ public class HomePageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ImageView transportButton;
+    private ImageView HotelButton;
+    private ImageView TripsButton;
+    private ImageView eventButton;
     private TextInputEditText searchBarEditText;
 
     public HomePageFragment() {
@@ -73,6 +76,29 @@ public class HomePageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
         transportButton = view.findViewById(R.id.transport);
         searchBarEditText = view.findViewById(R.id.textInputEditText);
+        HotelButton = view.findViewById(R.id.hotel);
+        TripsButton = view.findViewById(R.id.trips);
+        eventButton = view.findViewById(R.id.event);
+        HotelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(requireContext(), "Comming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        TripsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(requireContext(), "Comming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(requireContext(), "Comming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         transportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

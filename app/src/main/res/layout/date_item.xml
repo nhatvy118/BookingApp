@@ -3,11 +3,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp"
-    android:layout_marginEnd="8dp">
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/date_item_selector"
+    >
 
     <TextView
         android:id="@+id/day"
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TH"
         android:textSize="12sp"
@@ -15,7 +17,7 @@
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="02"
         android:textSize="16sp"

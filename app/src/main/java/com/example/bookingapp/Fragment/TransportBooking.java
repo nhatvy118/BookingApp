@@ -2,7 +2,6 @@ package com.example.bookingapp.Fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -21,10 +19,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.bookingapp.Data;
 import com.example.bookingapp.Flights;
 import com.example.bookingapp.HomePage;
 import com.example.bookingapp.R;
-import com.example.bookingapp.SignInScreen;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.ParseException;
@@ -82,25 +80,7 @@ public class TransportBooking extends Fragment {
     private String selectedAirportTo;
     private String[] places = {"Ho Chi Minh (SGN)", "Da Nang (DNA)", "Hue (HUI)", "Ha Noi (HAN)", "Da Lat (DLI)", "Can Tho (CTH)"};
 
-    public interface OnTransportBookingListener {
-        void onTransportBooking(String selectedAirportFrom, String selectedAirportTo, String departureDate, String returnDate, String passengerCount,String ChildCount,String PetCount,String LuggageCount, String classType, String flightType);
-    }
 
-    private OnTransportBookingListener listener;
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnTransportBookingListener) {
-            listener = (OnTransportBookingListener) context;
-        } else {
-            throw new RuntimeException(context.toString() + " must implement OnTransportBookingListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -297,14 +277,15 @@ public class TransportBooking extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String departureDate = departureInput.getText().toString();
-                String returnDate = returnInput.getText().toString();
+                String departureDate = String.valueOf(departureInput.getText());
+                String returnDate = String.valueOf(returnInput.getText());
                 String passengerCount = passengerCountEditText.getText().toString();
                 String childrenCount = childrenCountEditText.getText().toString();
                 String petCount = petCountEditText.getText().toString();
                 String luggageCount = luggageCountEditText.getText().toString();
                 String classType = buttonEconomy.isSelected() ? "Economy" : "Business";
                 String flightType = buttonAirplane.isSelected() ? "Airplane" : buttonBoat.isSelected() ? "Boat" : buttonTrain.isSelected() ? "Train" : "Bus";
+
 
                 if (selectedAirportFrom == null || selectedAirportTo == null) {
                     Toast.makeText(getContext(), "Please select an airport", Toast.LENGTH_SHORT).show();
@@ -322,12 +303,20 @@ public class TransportBooking extends Fragment {
                     Toast.makeText(getContext(), "Please enter passenger count", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (listener != null) {
-                    listener.onTransportBooking(selectedAirportFrom, selectedAirportTo, departureDate, returnDate, passengerCount,childrenCount,petCount,luggageCount, classType, flightType);
-                }
+                Data data = new Data();
+
+                data.setSelectedAirportFrom(selectedAirportFrom);
+                data.setSelectedAirportTo(selectedAirportTo);
+                data.setDepartureDate(departureDate);
+                data.setReturnDate(returnDate);
+                data.setNumberOfPassengers(passengerCount);
+                data.setNumberOfChildren(childrenCount);
+                data.setTransportType(flightType);
+                data.setClassType(classType);
+
 
                 Intent intent = new Intent(getContext(), Flights.class);
-
+                intent.putExtra("Information", data);
                 startActivity(intent);
             }
         });
@@ -387,6 +376,7 @@ public class TransportBooking extends Fragment {
 
                 // Set the selected date in the EditText
                 editText.setText(selectedDateStr);
+
 
                 // Validate the date immediately after setting
                 if (editText == returnInput || editText == departureInput ) {

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bookingapp.R;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -27,6 +28,10 @@ public class ProfileFragment extends Fragment {
 
 
     private TextView ProfileInfo;
+    private TextView profilePayment;
+    private TextView profileSave;
+    private TextView profileSetting;
+    private TextView profileHistory;
     private TextView profileName;
     private SharedPreferences pref;
 
@@ -65,6 +70,10 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ProfileInfo = view.findViewById(R.id.personal_information);
+        profilePayment = view.findViewById(R.id.payment_and_cards);
+        profileSave = view.findViewById(R.id.saved);
+        profileSetting = view.findViewById(R.id.settings);
+        profileHistory = view.findViewById(R.id.booking_history);
 
         profileName = view.findViewById(R.id.profile_name);
         profileName.setText(name);
@@ -87,6 +96,34 @@ public class ProfileFragment extends Fragment {
                 transaction.commit();
             }
         });
+
+        profilePayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "This function will be developed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        profileSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "This function will be developed", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+        profileHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "This function will be developed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        profileSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "This function will be developed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         return view;
     }
 }

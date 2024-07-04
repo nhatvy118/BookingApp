@@ -9,19 +9,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.bookingapp.Data;
 import com.example.bookingapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketViewHolder> {
 
     private List<TicketItem> ticketList;
+
     private Context context;
+    Data data;
 
     public TicketAdapter(List<TicketItem> ticketList, Context context) {
         this.ticketList = ticketList;
         this.context = context;
+    }
+
+    public TicketAdapter(List<TicketItem> ticketList, Context context, Data data) {
+        this.ticketList = ticketList;
+        this.context = context;
+        this.data = data;
     }
 
     @NonNull
@@ -38,6 +47,10 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         holder.departureValue.setText(ticketItem.getDepartureTime());
         holder.priceValue.setText(ticketItem.getPrice());
         holder.numberValue.setText(ticketItem.getFlightNumber());
+        holder.fromLocationCode.setText(ticketItem.getFromAirportCode());
+        holder.toLocationCode.setText(ticketItem.getToAirportCode());
+        holder.fromCity.setText(ticketItem.getFromCity());
+        holder.toCity.setText(ticketItem.getToCity());
     }
 
     @Override
@@ -45,11 +58,16 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         return ticketList.size();
     }
 
+
     public static class TicketViewHolder extends RecyclerView.ViewHolder {
         TextView dateValue;
         TextView departureValue;
         TextView priceValue;
         TextView numberValue;
+        TextView fromLocationCode;
+        TextView toLocationCode;
+        TextView fromCity;
+        TextView toCity;
 
         public TicketViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -57,6 +75,10 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
             departureValue = itemView.findViewById(R.id.departureValue);
             priceValue = itemView.findViewById(R.id.priceValue);
             numberValue = itemView.findViewById(R.id.numberValue);
+            fromLocationCode = itemView.findViewById(R.id.fromLocationCode);
+            toLocationCode = itemView.findViewById(R.id.toLocationCode);
+            fromCity = itemView.findViewById(R.id.fromLocationName);
+            toCity = itemView.findViewById(R.id.toLocationName);
         }
     }
 }

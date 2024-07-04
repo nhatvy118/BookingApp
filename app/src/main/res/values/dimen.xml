@@ -1,3 +1,4 @@
 <resources>
     <dimen name="image_size">100dp</dimen>
+    <dimen name="grid_spacing">8dp</dimen>
 </resources>

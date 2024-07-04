@@ -19,7 +19,10 @@
         android:theme="@style/Theme.BookingApp"
         tools:targetApi="31">
         <activity
-            android:name=".selected_seats"
+            android:name=".BoardingPass"
+            android:exported="false" />
+        <activity
+            android:name=".SelectedSeats"
             android:exported="false" />
         <activity
             android:name=".Filters"

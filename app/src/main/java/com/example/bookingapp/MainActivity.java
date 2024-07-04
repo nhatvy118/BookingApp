@@ -20,8 +20,26 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         setAccountInfo();
-        Intent intent = new Intent(MainActivity.this, SplashScreen.class);
+        initFilter();
+        Intent intent = new Intent(MainActivity.this,HomePage.class);
         startActivity(intent);
+    }
+
+    private void initFilter() {
+        pref = getSharedPreferences("FilterPrefs", MODE_PRIVATE);
+        editor = pref.edit();
+        editor.putBoolean("Filter", false);
+
+        for (int i = 0; i < 4; i++) {
+           editor.putBoolean("btnDeparture" + i, false);
+           editor.putBoolean("btnArrival" + i, false);
+        }
+        for (int i = 0; i < 5; i++) {
+            editor.putBoolean("checkbox" + i, false);
+        }
+        editor.putInt("minPrice", 0);
+        editor.putInt("maxPrice", 300);
+        editor.apply();
     }
 
     private void setAccountInfo() {

@@ -11,6 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Account"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_image"
@@ -98,12 +119,12 @@
         </LinearLayout>
 
         <!-- End Session Button -->
+
         <Button
             android:id="@+id/end_session"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#F8EEE5"
-            android:drawableLeft="@drawable/endsession"
             android:drawablePadding="8dp"
             android:fontFamily="@font/poppins_bold"
             android:padding="10dp"
@@ -115,7 +136,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.889" />
+            app:layout_constraintVertical_bias="0.812" />
+
+        <ImageView
+            android:id="@+id/button_overlay_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/endsession"
+            app:layout_constraintBottom_toBottomOf="@id/end_session"
+            app:layout_constraintEnd_toEndOf="@id/end_session"
+            app:layout_constraintHorizontal_bias="0.254"
+            app:layout_constraintStart_toStartOf="@id/end_session"
+            app:layout_constraintTop_toTopOf="@id/end_session"
+            app:layout_constraintVertical_bias="0.44" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
