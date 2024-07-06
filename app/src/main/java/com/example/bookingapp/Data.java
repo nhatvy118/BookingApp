@@ -14,6 +14,7 @@ public class Data implements Serializable {
     private String transportType;
 
 
+
     public String getDepartureDate() {
         return departureDate;
     }

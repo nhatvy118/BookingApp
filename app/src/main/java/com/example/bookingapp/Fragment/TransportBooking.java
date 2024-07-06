@@ -12,6 +12,8 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -78,9 +80,14 @@ public class TransportBooking extends Fragment {
     private Button searchButton;
     private String selectedAirportFrom;
     private String selectedAirportTo;
+    private EditText passengerCountEditText;
+    private EditText childrenCountEditText;
+    private EditText petCountEditText;
+    private EditText luggageCountEditText;
     private String[] places = {"Ho Chi Minh (SGN)", "Da Nang (DNA)", "Hue (HUI)", "Ha Noi (HAN)", "Da Lat (DLI)", "Can Tho (CTH)"};
 
-
+    private int isAirplaneSelected = -1;
+    private ImageButton backBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,9 +107,51 @@ public class TransportBooking extends Fragment {
         returnInput = view.findViewById(R.id.returnInput);
         fromInput = view.findViewById(R.id.fromText);
         toInput = view.findViewById(R.id.toText);
+        ImageButton switchButton = view.findViewById(R.id.switchButton);
+        passengerCountEditText = view.findViewById(R.id.passengerCountEditText);
+        childrenCountEditText = view.findViewById(R.id.childrenCountEditText);
+        petCountEditText = view.findViewById(R.id.petCountEditText);
+        luggageCountEditText = view.findViewById(R.id.luggageCountEditText);
+        Button buttonEconomy = view.findViewById(R.id.button_economy);
+        Button buttonBusiness = view.findViewById(R.id.button_business);
+        ImageButton buttonAirplane = view.findViewById(R.id.button_airplane);
+        ImageButton buttonBoat = view.findViewById(R.id.button_boat);
+        ImageButton buttonTrain = view.findViewById(R.id.button_train);
+        ImageButton buttonBus = view.findViewById(R.id.button_bus);
+        searchButton = view.findViewById(R.id.searchButton);
+        backBtn = view.findViewById(R.id.back_button);
+
+        buttonAirplane.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isAirplaneSelected = 1;
+            }
+        });
+        buttonBoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isAirplaneSelected = 0;
+            }
+        });
+        buttonBus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isAirplaneSelected = 0;
+            }
+        });
+        buttonTrain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isAirplaneSelected = 0;
+            }
+        });
 
 
-// Set adapter for AutoCompleteTextViews
+
+
+
+
+       // Set adapter for AutoCompleteTextViews
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(),
                 android.R.layout.simple_dropdown_item_1line, places);
 
@@ -142,35 +191,6 @@ public class TransportBooking extends Fragment {
                 }
             }
         });
-
-//        fromInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String selectedAirportString = (String) parent.getItemAtPosition(position);
-//                selectedAirportFrom = findAirportByString(selectedAirportString);
-//                if (selectedAirportFrom == null) {
-//                    Toast.makeText(getContext(), "Airport not available", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//
-//        toInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String selectedAirportString = (String) parent.getItemAtPosition(position);
-//                selectedAirportTo = findAirportByString(selectedAirportString);
-//                if (selectedAirportTo == null) {
-//                    Toast.makeText(getContext(), "Airport not available", Toast.LENGTH_SHORT).show();
-//
-//                }
-//            }
-//        });
-
-
-        ImageButton switchButton = view.findViewById(R.id.switchButton);
-
-
-
         // Set OnClickListener on switchButton
         switchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +200,8 @@ public class TransportBooking extends Fragment {
                 String toText = toInput.getText().toString();
                 fromInput.setText(toText);
                 toInput.setText(fromText);
+                selectedAirportFrom = fromInput.getText().toString();
+                selectedAirportTo = toInput.getText().toString();
             }
         });
 
@@ -199,22 +221,16 @@ public class TransportBooking extends Fragment {
                 showDatePicker(returnInput);
             }
         });
-        EditText passengerCountEditText = view.findViewById(R.id.passengerCountEditText);
-        EditText childrenCountEditText = view.findViewById(R.id.childrenCountEditText);
-        EditText petCountEditText = view.findViewById(R.id.petCountEditText);
-        EditText luggageCountEditText = view.findViewById(R.id.luggageCountEditText);
 
         setupEditText(passengerCountEditText, R.drawable.person_icon, R.string.passenger_hint);
         setupEditText(childrenCountEditText, R.drawable.child_icon, R.string.children_hint);
         setupEditText(petCountEditText, R.drawable.pet_icon, R.string.pet_hint);
         setupEditText(luggageCountEditText, R.drawable.luggage_icon, R.string.luggage_hint);
 
-        Button buttonEconomy = view.findViewById(R.id.button_economy);
-        Button buttonBusiness = view.findViewById(R.id.button_business);
-
         buttonEconomy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearForcus();
                 buttonEconomy.setSelected(true);
                 buttonBusiness.setSelected(false);
             }
@@ -223,19 +239,18 @@ public class TransportBooking extends Fragment {
         buttonBusiness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearForcus();
                 buttonEconomy.setSelected(false);
                 buttonBusiness.setSelected(true);
             }
         });
 
-        ImageButton buttonAirplane = view.findViewById(R.id.button_airplane);
-        ImageButton buttonBoat = view.findViewById(R.id.button_boat);
-        ImageButton buttonTrain = view.findViewById(R.id.button_train);
-        ImageButton buttonBus = view.findViewById(R.id.button_bus);
+
 
         buttonAirplane.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearForcus();
                 buttonAirplane.setSelected(true);
                 buttonBoat.setSelected(false);
                 buttonTrain.setSelected(false);
@@ -246,6 +261,7 @@ public class TransportBooking extends Fragment {
         buttonBoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearForcus();
                 buttonAirplane.setSelected(false);
                 buttonBoat.setSelected(true);
                 buttonTrain.setSelected(false);
@@ -256,6 +272,7 @@ public class TransportBooking extends Fragment {
         buttonTrain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearForcus();
                 buttonAirplane.setSelected(false);
                 buttonBoat.setSelected(false);
                 buttonTrain.setSelected(true);
@@ -266,6 +283,7 @@ public class TransportBooking extends Fragment {
         buttonBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearForcus();
                 buttonAirplane.setSelected(false);
                 buttonBoat.setSelected(false);
                 buttonTrain.setSelected(false);
@@ -273,10 +291,11 @@ public class TransportBooking extends Fragment {
             }
         });
 
-        searchButton = view.findViewById(R.id.searchButton);
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearForcus();
                 String departureDate = String.valueOf(departureInput.getText());
                 String returnDate = String.valueOf(returnInput.getText());
                 String passengerCount = passengerCountEditText.getText().toString();
@@ -320,7 +339,7 @@ public class TransportBooking extends Fragment {
                 startActivity(intent);
             }
         });
-        ImageButton backBtn = view.findViewById(R.id.back_button);
+
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -433,6 +452,15 @@ public class TransportBooking extends Fragment {
         }
         return null; // Return null if no match found
     }
-
+    private void clearForcus(){
+        fromInput.clearFocus();
+        toInput.clearFocus();
+        departureInput.clearFocus();
+        returnInput.clearFocus();
+        passengerCountEditText.clearFocus();
+        childrenCountEditText.clearFocus();
+        petCountEditText.clearFocus();
+        luggageCountEditText.clearFocus();
+    }
 
 }

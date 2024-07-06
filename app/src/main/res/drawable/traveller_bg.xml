@@ -1,6 +1,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Selected state -->
-    <item android:state_pressed="true">
+    <item android:state_selected="true">
         <shape android:shape="rectangle">
             <corners android:radius="10dp" /> <!-- Adjust the radius as per your preference -->
             <solid android:color="#FFDDA2" /> <!-- Background color when pressed -->

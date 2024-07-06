@@ -1,26 +1,19 @@
 package com.example.bookingapp;
 
-import static com.example.bookingapp.Adapter.DateAdapter.registerOnClickDateListener;
-
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
-
-public class Filters extends AppCompatActivity implements OnRangeChangeListener{
+public class Filters extends AppCompatActivity implements OnRangeChangeListener {
 
     private String departure = null;
     private String arrival = null;
@@ -35,12 +28,12 @@ public class Filters extends AppCompatActivity implements OnRangeChangeListener{
     private RangeSliderView slider;
     private ImageButton backbtn;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        RangeSliderView.registerOnRangeChangeListener(this);
         setContentView(R.layout.activity_filters);
+
+        // Initialize views
         slider = findViewById(R.id.rangeSlider);
         minText = findViewById(R.id.minPrice);
         maxText = findViewById(R.id.maxPrice);
@@ -58,82 +51,67 @@ public class Filters extends AppCompatActivity implements OnRangeChangeListener{
         checkbox[3] = findViewById(R.id.lowest_fare_checkbox);
         checkbox[4] = findViewById(R.id.duration_checkbox);
         backbtn = findViewById(R.id.back_button);
+
+        // Register the listener
+        RangeSliderView.registerOnRangeChangeListener(this);
+
+        // Restore filter state
         restoreFilterState();
+
+        // Update EditText with current slider values
         minText.setText("$" + slider.getCurrentMin());
         maxText.setText("$" + slider.getCurrentMax());
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+
+        // Set up button listeners
+        backbtn.setOnClickListener(v -> finish());
+
+        minText.setOnClickListener(v -> {
+            String tmpMin = minText.getText().toString();
+            if (tmpMin.startsWith("$")) {
+                tmpMin = tmpMin.substring(1);
+            }
+            if (Integer.parseInt(tmpMin) > slider.getCurrentMax()) {
+                Toast.makeText(Filters.this, "Min price must be less than max price", Toast.LENGTH_SHORT).show();
+            } else {
+                slider.setStartValue(Integer.parseInt(tmpMin));
+                minText.setText("$" + slider.getCurrentMin());
             }
         });
 
-
-        minText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tmpMin = minText.getText().toString();
-                if (tmpMin.startsWith("$")){
-                    tmpMin = tmpMin.substring(1);
-                }
-                if (Integer.parseInt(tmpMin) > slider.getCurrentMax()){
-                    Toast.makeText(Filters.this, "Min price must be less than max price", Toast.LENGTH_SHORT).show();
-                }else{
-                    slider.setStartValue(Integer.parseInt(tmpMin));
-                    minText.setText("$" + slider.getCurrentMin());
-                }
-
+        maxText.setOnClickListener(v -> {
+            String tmpMax = maxText.getText().toString();
+            if (tmpMax.startsWith("$")) {
+                tmpMax = tmpMax.substring(1);
             }
-        });
-        maxText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tmpMax = maxText.getText().toString();
-                if (tmpMax.startsWith("$")){
-                    tmpMax = tmpMax.substring(1);
-                }
-                if (Integer.parseInt(tmpMax) < slider.getCurrentMin()){
-                    Toast.makeText(Filters.this, "Max price must be greater than min price", Toast.LENGTH_SHORT).show();
-                }else{
-                    slider.setEndValue(Integer.parseInt(tmpMax));
-                    maxText.setText("$" + slider.getCurrentMax());
-                }
-
+            if (Integer.parseInt(tmpMax) < slider.getCurrentMin()) {
+                Toast.makeText(Filters.this, "Max price must be greater than min price", Toast.LENGTH_SHORT).show();
+            } else {
+                slider.setEndValue(Integer.parseInt(tmpMax));
+                maxText.setText("$" + slider.getCurrentMax());
             }
         });
 
         for (int i = 0; i < btnDeparture.length; i++) {
             final int index = i;
-            btnDeparture[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    for (Button button : btnDeparture) {
-                        button.setSelected(false);
-                    }
-                    btnDeparture[index].setSelected(true);
-                    departure = btnDeparture[index].getText().toString();
+            btnDeparture[i].setOnClickListener(v -> {
+                for (Button button : btnDeparture) {
+                    button.setSelected(false);
                 }
+                btnDeparture[index].setSelected(true);
+                departure = btnDeparture[index].getText().toString();
             });
         }
+
         for (int i = 0; i < btnArrival.length; i++) {
             final int index = i;
-            btnArrival[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    for (Button button : btnArrival) {
-                        button.setSelected(false);
-                    }
-                    btnArrival[index].setSelected(true);
-                    arrival = btnArrival[index].getText().toString();
+            btnArrival[i].setOnClickListener(v -> {
+                for (Button button : btnArrival) {
+                    button.setSelected(false);
                 }
+                btnArrival[index].setSelected(true);
+                arrival = btnArrival[index].getText().toString();
             });
         }
-
-
-
-
-
-
 
         // Done button logic
         Button doneButton = findViewById(R.id.done_btn);
@@ -141,12 +119,12 @@ public class Filters extends AppCompatActivity implements OnRangeChangeListener{
             Intent resultIntent = new Intent();
             if (checkbox[1].isChecked()) {
                 resultIntent.putExtra("option1", "departure");
-            }else{
+            } else {
                 resultIntent.putExtra("option1", "null");
             }
             if (checkbox[2].isChecked()) {
                 resultIntent.putExtra("option2", "price");
-            }else{
+            } else {
                 resultIntent.putExtra("option2", "null");
             }
             if (checkbox[1].isChecked()) {
@@ -168,39 +146,37 @@ public class Filters extends AppCompatActivity implements OnRangeChangeListener{
 
                 resultIntent.putExtra("startTime", startTime);
                 resultIntent.putExtra("endTime", endTime);
-            }else{
+            } else {
                 resultIntent.putExtra("startTime", "null");
                 resultIntent.putExtra("endTime", "null");
             }
-            if (checkbox[2].isChecked()){
+            if (checkbox[2].isChecked()) {
                 resultIntent.putExtra("minPrice", slider.getCurrentMin());
                 resultIntent.putExtra("maxPrice", slider.getCurrentMax());
-            }else{
+            } else {
                 resultIntent.putExtra("minPrice", "null");
                 resultIntent.putExtra("maxPrice", "null");
             }
             if (checkbox[2].isChecked() || checkbox[1].isChecked()) {
                 resultIntent.putExtra("IsFilters", "IsFilter");
-            }else{
+            } else {
                 resultIntent.putExtra("IsFilters", "null");
             }
             saveFilterState();
             setResult(RESULT_OK, resultIntent);
             finish();
-
         });
 
         Button resetButton = findViewById(R.id.reset_btn);
         resetButton.setOnClickListener(v -> resetFilters());
     }
 
-
-
     @Override
     public void onRangeChange(int min, int max) {
         minText.setText("$" + min);
         maxText.setText("$" + max);
     }
+
     private void resetFilters() {
         departure = null;
         arrival = null;
@@ -224,6 +200,7 @@ public class Filters extends AppCompatActivity implements OnRangeChangeListener{
         pref = getSharedPreferences("FilterPrefs", Context.MODE_PRIVATE);
         pref.edit().clear().apply();
     }
+
     private void restoreFilterState() {
         pref = getSharedPreferences("FilterPrefs", Context.MODE_PRIVATE);
 
@@ -241,19 +218,16 @@ public class Filters extends AppCompatActivity implements OnRangeChangeListener{
 
         int minPrice = pref.getInt("minPrice", 0);
         int maxPrice = pref.getInt("maxPrice", 300);
-        Log.d("minPrice", String.valueOf(minPrice));
-        Log.d("maxPrice", String.valueOf(maxPrice));
+        slider.setStartValue(minPrice); // Ensure this is set first
         slider.setEndValue(maxPrice);
-        slider.setStartValue(minPrice);
-
 
         minText.setText("$" + minPrice);
         maxText.setText("$" + maxPrice);
     }
+
     private void saveFilterState() {
         pref = getSharedPreferences("FilterPrefs", MODE_PRIVATE);
         editor = pref.edit();
-
 
         for (int i = 0; i < btnDeparture.length; i++) {
             editor.putBoolean("btnDeparture" + i, btnDeparture[i].isSelected());
@@ -270,9 +244,6 @@ public class Filters extends AppCompatActivity implements OnRangeChangeListener{
         editor.putInt("minPrice", slider.getCurrentMin());
         editor.putInt("maxPrice", slider.getCurrentMax());
 
-
         editor.apply();
     }
-
-
 }

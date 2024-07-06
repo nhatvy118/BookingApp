@@ -8,15 +8,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookingapp.Flights;
+import com.example.bookingapp.OnClickDateListener;
+import com.example.bookingapp.OnClickTravellerListener;
 import com.example.bookingapp.R;
+import com.example.bookingapp.SelectedSeats;
 
 import java.util.List;
 
 public class TravellerAdapter extends RecyclerView.Adapter<TravellerAdapter.TravellerViewHolder> {
 
-    private List<Integer> travellerList; // Assuming travellerList contains numbers
+    private List<Traveller> travellerList;
+    private static OnClickTravellerListener onClickTravellerListener;
 
-    public TravellerAdapter(List<Integer> travellerList) {
+    public static void registerOnClickTravellerListener(SeatAdapter context) {
+        onClickTravellerListener = (OnClickTravellerListener) context;
+    }
+
+
+    public TravellerAdapter(List<Traveller> travellerList) {
         this.travellerList = travellerList;
     }
 
@@ -24,14 +34,24 @@ public class TravellerAdapter extends RecyclerView.Adapter<TravellerAdapter.Trav
     @Override
     public TravellerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.traveller, parent, false); // Replace with your actual item layout
+                .inflate(R.layout.traveller, parent, false);
         return new TravellerViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TravellerViewHolder holder, int position) {
-        int travellerNumber = travellerList.get(position);
-        holder.bind(travellerNumber);
+        Traveller traveller = travellerList.get(position);
+        holder.bind(traveller);
+        holder.itemView.setSelected(traveller.getIsSelect());
+        holder.itemView.setOnClickListener(v -> {
+            for (Traveller item : travellerList) {
+                item.setIsSelect(false);
+            }
+            traveller.setIsSelect(true);
+            onClickTravellerListener.OnTravellerChange(position + 1);
+            notifyDataSetChanged();
+        });
+
     }
 
     @Override
@@ -44,12 +64,11 @@ public class TravellerAdapter extends RecyclerView.Adapter<TravellerAdapter.Trav
 
         public TravellerViewHolder(@NonNull View itemView) {
             super(itemView);
-            travellerTextView = itemView.findViewById(R.id.traveller); // Replace with your actual TextView ID
+            travellerTextView = itemView.findViewById(R.id.traveller);
         }
 
-        public void bind(int travellerNumber) {
-            travellerTextView.setText(String.valueOf(travellerNumber));
+        public void bind(Traveller traveller) {
+            travellerTextView.setText(String.valueOf(traveller.getNumber()));
         }
     }
 }
-

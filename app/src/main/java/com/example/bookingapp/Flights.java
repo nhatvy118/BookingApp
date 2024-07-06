@@ -47,6 +47,7 @@ public class Flights extends AppCompatActivity implements OnClickDateListener {
     private int minPrice;
 
     private String isFilter;
+    private ImageButton backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,10 @@ public class Flights extends AppCompatActivity implements OnClickDateListener {
         dateRecyclerView = findViewById(R.id.date_recycler_view);
         ticketRecyclerView = findViewById(R.id.ticket_recycler_view);
         ImageButton filter = findViewById(R.id.filter_button);
+        backBtn = findViewById(R.id.back_button);
+        backBtn.setOnClickListener(v -> {
+            onBackPressed();
+        });
 
         ArrayList<DateItem> dateItems = ConstantDateItem.getDateItems(30);
         dateRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));

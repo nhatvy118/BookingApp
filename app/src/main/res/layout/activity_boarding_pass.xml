@@ -61,12 +61,12 @@
         app:layout_constraintTop_toTopOf="@id/boarding_pass_image" />
 
     <TextView
-        android:id="@+id/text_view"
+        android:id="@+id/airportname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="British Airways Flight NL-41"
+        android:text="Viet Nam Airways Flight NL-41"
         android:textColor="@android:color/black"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@id/overlay_image"
@@ -258,13 +258,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/boarding_pass_image"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/divider_image1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
@@ -275,9 +274,9 @@
 
             <TextView
                 android:id="@+id/Passenger"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="15dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Passenger"
@@ -287,8 +286,8 @@
 
             <TextView
                 android:id="@+id/Ticket"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
@@ -299,10 +298,10 @@
 
             <TextView
                 android:id="@+id/Class"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="55dp"
+                android:layout_marginEnd="50dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Class"
@@ -312,7 +311,7 @@
 
             <TextView
                 android:id="@+id/Seat"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
@@ -332,9 +331,9 @@
 
             <TextView
                 android:id="@+id/Passenger_value"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="15dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
                 android:text="1 Adult"
@@ -343,7 +342,7 @@
 
             <TextView
                 android:id="@+id/ticket_value"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
@@ -354,10 +353,10 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/seat_value"
-                android:layout_width="match_parent"
+                android:id="@+id/class_value"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Business"
@@ -365,8 +364,8 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/numberValue"
-                android:layout_width="match_parent"
+                android:id="@+id/seat_value"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"

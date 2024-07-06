@@ -7,8 +7,8 @@
 
     <TextView
         android:id="@+id/seatView1"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
         android:textSize="18sp"
         android:fontFamily="@font/poppins_bold"
         android:layout_marginRight="16dp"
@@ -17,8 +17,8 @@
 
     <TextView
         android:id="@+id/seatView2"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
         android:textSize="18sp"
         android:fontFamily="@font/poppins_bold"
         android:background="@drawable/seat_background"
@@ -28,8 +28,8 @@
 
         <TextView
             android:id="@+id/num"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
             android:text="1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -41,8 +41,8 @@
 
         <TextView
         android:id="@+id/seatView3"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
             android:textSize="18sp"
             android:fontFamily="@font/poppins_bold"
         android:layout_marginRight="16dp"
@@ -52,8 +52,8 @@
 
     <TextView
         android:id="@+id/seatView4"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
         android:textSize="18sp"
         android:fontFamily="@font/poppins_bold"
         android:background="@drawable/seat_background"

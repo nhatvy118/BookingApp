@@ -21,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setAccountInfo();
         initFilter();
-        Intent intent = new Intent(MainActivity.this,HomePage.class);
+        Intent intent = new Intent(MainActivity.this,SplashScreen.class);
         startActivity(intent);
     }
+
 
     private void initFilter() {
         pref = getSharedPreferences("FilterPrefs", MODE_PRIVATE);
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
         editor = pref.edit();
         editor.putString("FirstName", "Vy");
         editor.putString("LastName", "Huynh");
-        editor.putString("Email", "vy");
-        editor.putString("Password", "1");
-        editor.putString("PhoneNumber", "0123456789");
+        editor.putString("Email", "vy@gmail.com");
+        editor.putString("Password", "123");
+        editor.putString("PhoneNumber", "+84348925571");
         editor.putString("Image", "Default");
         editor.apply();
     }
+
+
 }

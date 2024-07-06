@@ -10,7 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:descendantFocusability="beforeDescendants">
+
         <RelativeLayout
             android:id="@+id/heading"
             android:layout_width="match_parent"
@@ -208,9 +210,6 @@
                 android:drawablePadding="8dp"
                 android:hint="@string/passenger_hint"
                 android:inputType="number"
-                android:focusableInTouchMode="true"
-                android:clickable="true"
-                android:focusable="true"
                 android:textColor="@color/edittext_text_color" />
 
             <EditText
@@ -223,9 +222,6 @@
                 android:drawablePadding="8dp"
                 android:hint="@string/children_hint"
                 android:inputType="number"
-                android:focusableInTouchMode="true"
-                android:clickable="true"
-                android:focusable="true"
                 android:textColor="@color/edittext_text_color" />
 
             <EditText
@@ -238,9 +234,6 @@
                 android:drawablePadding="8dp"
                 android:hint="@string/pet_hint"
                 android:inputType="number"
-                android:focusableInTouchMode="true"
-                android:clickable="true"
-                android:focusable="true"
                 android:textColor="@color/edittext_text_color" />
 
             <EditText
@@ -252,9 +245,6 @@
                 android:drawableStart="@drawable/luggage_icon"
                 android:drawablePadding="8dp"
                 android:hint="@string/luggage_hint"
-                android:focusableInTouchMode="true"
-                android:clickable="true"
-                android:focusable="true"
                 android:inputType="number"
                 android:textColor="@color/edittext_text_color" />
 
@@ -397,5 +387,6 @@
             app:layout_constraintStart_toStartOf="@+id/constraintLayout"
             app:layout_constraintTop_toBottomOf="@+id/transportLayout"
             app:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

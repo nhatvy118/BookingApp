@@ -47,8 +47,8 @@ public class RangeSliderView extends View {
     }
 
     private void init() {
-        startX = PADDING;
-        endX = getWidth() - PADDING;
+        startX = currentMin;
+        endX = currentMax;
         linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         linePaint.setColor(Color.parseColor("#B7DFDB"));
         linePaint.setStrokeWidth(LINE_HEIGHT);
@@ -154,6 +154,7 @@ public class RangeSliderView extends View {
     public void setStartValue(int value) {
         Log.d("TAG", "setStartValue: " + value);
         startX = getPositionFromValue(value);
+        currentMin = value;
         updateCirclePositionsFromValues();
         Log.d("TAG", "setStartValue: " + startX);
         invalidate();
@@ -162,6 +163,7 @@ public class RangeSliderView extends View {
     public void setEndValue(int value) {
         Log.d("TAG", "setEndValue: " + value);
         endX = getPositionFromValue(value);
+        currentMax = value;
         updateCirclePositionsFromValues();
         Log.d("TAG", "setEndValue: " + endX);
         invalidate();
@@ -169,12 +171,14 @@ public class RangeSliderView extends View {
 
     // Updated functions to get the current min and max values
     public int getCurrentMin() {
-        float rangeWidth = getWidth() - 2 * PADDING;
-        return Math.round((float) ((startX - PADDING)/rangeWidth)*maxValue);
+        return currentMin;
+//        float rangeWidth = getWidth() - 2 * PADDING;
+//        return Math.round((float) ((startX - PADDING)/rangeWidth)*maxValue);
     }
 
     public int getCurrentMax() {
-        float rangeWidth = getWidth() - 2 * PADDING;
-        return Math.round((float) ((endX - PADDING)/rangeWidth)*maxValue);
+        return currentMax;
+//        float rangeWidth = getWidth() - 2 * PADDING;
+//        return Math.round((float) ((endX - PADDING)/rangeWidth)*maxValue);
     }
 }

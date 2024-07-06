@@ -38,354 +38,359 @@
             android:textStyle="bold"/>
     </RelativeLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView"
+<!--    <ScrollView-->
+<!--        android:id="@+id/scrollView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/heading"-->
+<!--        app:layout_constraintVertical_bias="1.0">-->
+
+
+    <!--    </ScrollView>-->
+
+    <LinearLayout
+        android:id="@id/filter_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/heading"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <!-- Departure Section -->
+        <TextView
+            android:id="@+id/departure_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Departure"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollViewDeparture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center_vertical"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/departure_btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12AM - 06AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/departure_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06AM - 12PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/departure_btn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12PM - 06PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/departure_btn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06PM - 12AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Arrival Section -->
+        <TextView
+            android:id="@+id/arrival_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Arrival"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollViewArrival"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="center_vertical"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/arrival_btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12AM - 06AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/arrival_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06AM - 12PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/arrival_btn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="12PM - 06PM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/arrival_btn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/poppins_regular"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:text="06PM - 12AM"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="16sp"
+                    app:backgroundTint="@null" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Price Section -->
+        <TextView
+            android:id="@+id/price_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Price"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.example.bookingapp.RangeSliderView
+            android:id="@+id/rangeSlider"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
 
 
         <LinearLayout
-            android:id="@id/filter_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="13dp"
-            android:layout_marginTop="12dp"
-            android:orientation="vertical">
-
-
-            <!-- Departure Section -->
-            <TextView
-                android:id="@+id/departure_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Departure"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollViewDeparture"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:foregroundGravity="center_vertical"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/departure_btn1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="12AM - 06AM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                    <Button
-                        android:id="@+id/departure_btn2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="06AM - 12PM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                    <Button
-                        android:id="@+id/departure_btn3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="12PM - 06PM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                    <Button
-                        android:id="@+id/departure_btn4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="06PM - 12AM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <!-- Arrival Section -->
-            <TextView
-                android:id="@+id/arrival_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Arrival"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollViewArrival"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:foregroundGravity="center_vertical"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/arrival_btn1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="12AM - 06AM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                    <Button
-                        android:id="@+id/arrival_btn2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="06AM - 12PM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                    <Button
-                        android:id="@+id/arrival_btn3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="12PM - 06PM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                    <Button
-                        android:id="@+id/arrival_btn4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/button_background"
-                        android:fontFamily="@font/poppins_regular"
-                        android:paddingLeft="24dp"
-                        android:paddingRight="24dp"
-                        android:text="06PM - 12AM"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="16sp"
-                        app:backgroundTint="@null" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <!-- Price Section -->
-            <TextView
-                android:id="@+id/price_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Price"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <com.example.bookingapp.RangeSliderView
-                android:id="@+id/rangeSlider"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                />
-
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_corner"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/round_corner"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:layout_marginStart="10dp"
+                    android:text="From"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="From"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                    <EditText
-                        android:id="@+id/minPrice"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="$50"
-                        android:inputType="number"
-                        android:textColor="@color/black"
-                        android:background="@null"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <EditText
+                    android:id="@+id/minPrice"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/round_corner"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="To"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                    <EditText
-                        android:id="@+id/maxPrice"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="$250"
-                        android:inputType="number"
-                        android:textColor="@color/black"
-                        android:background="@null"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                    android:layout_marginStart="10dp"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:text="$50"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
             </LinearLayout>
 
-            <!-- Sort By Section -->
-            <TextView
-                android:id="@+id/sortby_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Sort by"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <!-- Buttons Section -->
             <LinearLayout
-                android:id="@+id/select"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="13dp"
-                android:layout_marginEnd="13dp"
-                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/round_corner"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/price_label">
+                android:padding="10dp">
 
-                <CheckBox
-                    android:id="@+id/arrival_time_checkbox"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox"
-                    android:checked="false"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="   Arrival time"
-                    app:backgroundTint="#01635D" />
+                    android:layout_marginStart="10dp"
+                    android:text="To"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                <CheckBox
-                    android:id="@+id/departure_time_checkbox"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/maxPrice"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox"
-                    android:checked="false"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="   Departure time"
-                    app:backgroundTint="#01635D" />
-
-                <CheckBox
-                    android:id="@+id/price_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox"
-                    android:checked="false"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="   Price"
-                    app:backgroundTint="#01635D" />
-
-                <CheckBox
-                    android:id="@+id/lowest_fare_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox"
-                    android:checked="false"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="   Lowest fare"
-                    app:backgroundTint="#01635D" />
-
-                <CheckBox
-                    android:id="@+id/duration_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox"
-                    android:checked="false"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="   Duration"
-                    app:backgroundTint="#01635D" />
+                    android:layout_marginStart="10dp"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:text="$250"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
 
-    </ScrollView>
+        <!-- Sort By Section -->
+        <TextView
+            android:id="@+id/sortby_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Sort by"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Buttons Section -->
+        <LinearLayout
+            android:id="@+id/select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="13dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_label">
+
+            <CheckBox
+                android:id="@+id/arrival_time_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_checkbox"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="   Arrival time"
+                app:backgroundTint="#01635D" />
+
+            <CheckBox
+                android:id="@+id/departure_time_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_checkbox"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="   Departure time"
+                app:backgroundTint="#01635D" />
+
+            <CheckBox
+                android:id="@+id/price_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_checkbox"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="   Price"
+                app:backgroundTint="#01635D" />
+
+            <CheckBox
+                android:id="@+id/lowest_fare_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_checkbox"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="   Lowest fare"
+                app:backgroundTint="#01635D" />
+
+            <CheckBox
+                android:id="@+id/duration_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_checkbox"
+                android:checked="false"
+                android:fontFamily="@font/poppins_regular"
+                android:text="   Duration"
+                app:backgroundTint="#01635D" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

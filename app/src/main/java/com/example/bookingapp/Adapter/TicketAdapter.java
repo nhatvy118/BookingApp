@@ -1,6 +1,7 @@
 package com.example.bookingapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingapp.Data;
 import com.example.bookingapp.R;
+import com.example.bookingapp.SelectedSeats;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +53,13 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         holder.toLocationCode.setText(ticketItem.getToAirportCode());
         holder.fromCity.setText(ticketItem.getFromCity());
         holder.toCity.setText(ticketItem.getToCity());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, SelectedSeats.class);
+            intent.putExtra("Information", data);
+            intent.putExtra("ticket", ticketItem);
+            context.startActivity(intent);
+        });
     }
 
     @Override

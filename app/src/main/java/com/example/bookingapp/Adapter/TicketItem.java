@@ -1,6 +1,12 @@
 package com.example.bookingapp.Adapter;
 
-public class TicketItem {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+public class TicketItem implements Serializable {
     private String date;
     private String departureTime;
     private String price;
@@ -13,6 +19,7 @@ public class TicketItem {
     private String dateTime;
     private String fromAirport;
     private String toAirport;
+    private List<String> seats;
 
 
     public TicketItem(String dateTime, String departureTime, String price, String flightNumber, String fromCity, String toCity,
@@ -28,7 +35,19 @@ public class TicketItem {
         this.date = date;
         this.fromAirport = fromAirport;
         this.toAirport = toAirport;
+        this.seats = new ArrayList<>(Collections.nCopies(100, null)); // Initialize list with 100 null elements
     }
+    public List<String> getSeats() {
+        return seats;
+    }
+    public void setSeats(int i, String seat) {
+        if (i >= 0 && i < seats.size()) {
+            seats.set(i, seat); // Using set method of ArrayList to avoid index out of bounds
+        } else {
+            throw new IndexOutOfBoundsException("Invalid seat index");
+        }
+    }
+
 
     public String getDate() {
         return date;
